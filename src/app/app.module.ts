@@ -1,3 +1,4 @@
+import { StopTrainingDialog } from './training/current-training/stop-training-dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,7 +30,8 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
 		PastTrainingComponent,
 		WelcomeComponent,
 		HeaderComponent,
-		SidenavListComponent
+		SidenavListComponent,
+		StopTrainingDialog
 	],
 	imports: [
 		BrowserModule,
@@ -41,6 +43,7 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
 		ReactiveFormsModule
 	],
 	providers: [],
-	bootstrap: [AppComponent]
+	bootstrap: [AppComponent],
+	entryComponents: [ StopTrainingDialog ]
 })
 export class AppModule { }

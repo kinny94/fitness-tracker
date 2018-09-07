@@ -1,4 +1,4 @@
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
 
 import { AuthData } from './auth-data.model';
 import { User } from './user.model';

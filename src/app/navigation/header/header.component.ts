@@ -1,6 +1,6 @@
 import { AuthService } from './../../auth/auth.service';
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
 	selector: 'app-header',
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements OnInit, OnDestroy {
 
 	@Output() sidenavToggle = new EventEmitter<void>();
-	isAuth: boolean = false;
+	isAuth = false;
 	authSubscription: Subscription;
 
 	constructor( private authService: AuthService ) { }

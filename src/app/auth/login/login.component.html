@@ -2,13 +2,13 @@
 	<form [formGroup]="loginForm" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center" (ngSubmit)="onSubmit()">
 
 		<mat-form-field>
-			<input matInput type="email" placeholder="Your email" formControlName="email">
+			<input matInput type="email" placeholder="Your email" name="email" formControlName="email">
 			<mat-hint>Please enter a valid email.</mat-hint>
 			<mat-error>Invalid or missing Email</mat-error>
 		</mat-form-field>
 
 		<mat-form-field>
-			<input matInput type="password" placeholder="Your password"formControlName="password">
+			<input matInput type="password" placeholder="Your password"formControlName="password" name="password">
 			<mat-hint>Please enter your password.</mat-hint>
 			<mat-error>Missing password</mat-error>
 		</mat-form-field>

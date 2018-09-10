@@ -100,9 +100,22 @@ var span = document.querySelector('span');
 var obs = Rx.Observable.fromEvent(input1, 'input');
 var obs2 = Rx.Observable.fromEvent(input2, 'input');
 
+
 obs.mergeMap(
 	event1 => {
 		return obs2.map( event2 => 	event1.target.value + ' ' + event2.target.value )
 	}
 )
 .subscribe( value  => span.textContent = value )
+
+var button = document.querySelector('button');
+var obs1 = Rx.Observable.fromEvent(button, 'click');
+var obs2 = Rx.Observable.interval(1000);
+
+obs1.switchMap(
+	event => {
+		return obs2
+	}
+).subscribe(
+	( value ) => console.log( value )
+);

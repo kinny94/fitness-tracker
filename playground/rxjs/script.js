@@ -76,3 +76,33 @@ observable
 
 //Scan is used if you are interested in the in between values as well. It does not need observable to be completed.
 //Reduce is used if you're interested in the final value. It need the obsevable to be completed.
+
+var input = document.querySelector('input');
+var observable = Rx.Observable.fromEvent( input, 'input');
+
+observable
+.pluck( 'target', 'value' )
+.debounceTime( 500 )
+.distinctUntilChanged()
+.subscribe({
+	next: (value) => {
+		console.log( value );
+	}
+});
+
+
+//Pluck is used to get values out from an object instead of maps
+var input1 = document.querySelector('#input1');
+var input2 = document.querySelector('#input2');
+
+var span = document.querySelector('span');
+
+var obs = Rx.Observable.fromEvent(input1, 'input');
+var obs2 = Rx.Observable.fromEvent(input2, 'input');
+
+obs.mergeMap(
+	event1 => {
+		return obs2.map( event2 => 	event1.target.value + ' ' + event2.target.value )
+	}
+)
+.subscribe( value  => span.textContent = value )

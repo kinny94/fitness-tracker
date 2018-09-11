@@ -1,3 +1,4 @@
+import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from './../environments/environment';
 import { TrainingService } from './training/training.service';
 import { AuthService } from './auth/auth.service';
@@ -22,7 +23,8 @@ import { PastTrainingComponent } from './training/past-training/past-training.co
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
-import {  AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 @NgModule({
 	declarations: [
@@ -47,7 +49,8 @@ import {  AngularFirestoreModule } from 'angularfire2/firestore';
 		FormsModule,
 		ReactiveFormsModule,
 		AngularFireModule.initializeApp( environment.firebase  ),
-		AngularFirestoreModule
+		AngularFirestoreModule,
+		AngularFireAuthModule
 	],
 	providers: [
 		AuthService,

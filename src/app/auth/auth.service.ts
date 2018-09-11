@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AngularFireAuth } from 'angularfire2/auth';
+import { TrainingService } from '../training/training.service';
 
 @Injectable()
 export class AuthService{
@@ -13,15 +14,14 @@ export class AuthService{
 	authChange = new Subject<boolean>();
 	private isAuthenticated = false;
 
-	constructor( private router: Router, private afAuth: AngularFireAuth ){}
+	constructor( private router: Router, private afAuth: AngularFireAuth, private trainingService: TrainingService  ){}
 
 	registerUser( authData: AuthData ){
 		this.afAuth.auth.createUserWithEmailAndPassword( authData.email, authData.password )
-		.then(( result ) => {
+		.then( result => {
 			this.authSuccessfully();
 		})
 		.catch( err => console.log( err ));
-		this.authSuccessfully();
 	}
 
 	login( authData: AuthData ){
@@ -30,10 +30,11 @@ export class AuthService{
 			this.authSuccessfully();
 		})
 		.catch( err => console.log( err ));
-		this.authSuccessfully();
 	}
 
 	logout(){
+		this.trainingService.cancelSubscription();
+		this.afAuth.auth.signOut();
 		this.authChange.next( false );
 		this.router.navigate(['/login']);
 		this.isAuthenticated = false;

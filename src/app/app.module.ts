@@ -1,4 +1,3 @@
-import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from './../environments/environment';
 import { TrainingService } from './training/training.service';
 import { AuthService } from './auth/auth.service';

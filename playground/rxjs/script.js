@@ -20,6 +20,8 @@ subject.subscribe({
 subject.next('A new data peice');
 subject.complete();
 
+//Limitation with subbject is that it doesnot have an initial value or a starting value
+
 var observable = Rx.Observable.interval( 1000 );
 
 observable

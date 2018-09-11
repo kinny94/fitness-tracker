@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { TrainingService } from './training/training.service';
 import { AuthService } from './auth/auth.service';
 import { StopTrainingDialog } from './training/current-training/stop-training-dialog';
@@ -6,6 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFireModule } from 'angularfire2';
 
 import { NgModule } from '@angular/core';
 
@@ -20,6 +22,7 @@ import { PastTrainingComponent } from './training/past-training/past-training.co
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
+import {  AngularFirestoreModule } from 'angularfire2/firestore';
 
 @NgModule({
 	declarations: [
@@ -42,7 +45,9 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
 		AppRoutingModule,
 		FlexLayoutModule,
 		FormsModule,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		AngularFireModule.initializeApp( environment.firebase  ),
+		AngularFirestoreModule
 	],
 	providers: [
 		AuthService,

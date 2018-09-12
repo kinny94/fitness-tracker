@@ -1,5 +1,3 @@
-import { Action } from "rxjs/internal/scheduler/Action";
-
 import { UIActions, START_LOADING, STOP_LOADING } from './ui.actions';
 
 export interface State{

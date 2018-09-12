@@ -22,7 +22,7 @@ import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { UIService } from './shared/ui.service';
-import { appReducer } from './app.reducer';
+import { reducers } from './app.reducer';
 
 @NgModule({
 	declarations: [
@@ -43,7 +43,7 @@ import { appReducer } from './app.reducer';
 		AngularFireAuthModule,
 		AuthModule,
 		TrainingModule,
-		StoreModule.forRoot({    ui: appReducer })
+		StoreModule.forRoot( reducers )
 	],
 	providers: [
 		AuthService,

@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
+import { StoreModule } from '@ngrx/store';
 
 import { NgModule } from '@angular/core';
 
@@ -21,6 +22,7 @@ import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { UIService } from './shared/ui.service';
+import { appReducer } from './app.reducer';
 
 @NgModule({
 	declarations: [
@@ -40,7 +42,8 @@ import { UIService } from './shared/ui.service';
 		AngularFireModule.initializeApp( environment.firebase  ),
 		AngularFireAuthModule,
 		AuthModule,
-		TrainingModule
+		TrainingModule,
+		StoreModule.forRoot({    ui: appReducer })
 	],
 	providers: [
 		AuthService,
